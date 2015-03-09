@@ -9,7 +9,8 @@ App360 SDK 's Integration Flow
 
 Firstly, clone or download this repository to your machine.
 
-git clone https://github.com/app360/app360-wp-sdk.git
+`git clone https://github.com/app360/app360-wp-sdk.git`
+
 or, download from https://github.com/app360/app360-wp-sdk/release
 
 >The App360SDK supports Windows Phone 8 and 8.1 silverlight project.
@@ -39,9 +40,11 @@ Go to Tools -> Nuget Package Manager -> Package Manager Console
 # Intergrate your app with App360SDK for windows phone
 
 ##Document
-
-
  - Getting Started Guide: this README
+##Channeling
+Change configure of channel and subchannel in m360.xml
+
+![enter image description here](https://lh3.googleusercontent.com/0v-0aZOiaDpL0ndmXav9WW9J5d1E9VGKtDph_VqH_Q=s0 "m360Config.png")
 
 ## Application Id & Secret Key
 To using any function of App360SDk, you need to configure *Application Id* and *Secret key* which is used for authorize your app(game) with App360's server.
@@ -52,10 +55,7 @@ Go to https://developers.app360.vn/ to create your application.
 
 
 #App-scoped ID
-##Channeling
-Change configure of channel and subchannel in m360.xml
 
-![enter image description here](https://lh3.googleusercontent.com/0v-0aZOiaDpL0ndmXav9WW9J5d1E9VGKtDph_VqH_Q=s0 "m360Config.png")
     
 
 
