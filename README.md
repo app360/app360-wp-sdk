@@ -203,7 +203,7 @@ They are a pair of key, used to authorize your app (game) with SDK's server.
 # Support
 Please contact [us](mailto:support@app360.vn) for general inquiries.
 #For a technical issue
-n case you have a technical issue, you can reach our technical support team. Please provide the following information when you reach out, it'll allow us to help you much more quickly.
+In case you have a technical issue, you can reach our technical support team. Please provide the following information when you reach out, it'll allow us to help you much more quickly.
 
  - The steps to reproduce the problem. 
  - If possible, some pieces of code, or even a project.
