@@ -1,4 +1,3 @@
-[TOC]
 #Introduction
 App360SDK provides easiest way to integrate user management and payment methods (including sms, phone card and e-banking) into your application.
 
@@ -18,7 +17,7 @@ or, download from https://github.com/app360/app360-wp-sdk/release
 #Add App360 SDK to your project
 There are two ways to add App360SDK to your project.
 
-**Manual**
+##Manual
 RightClick to your project -> Add -> Reference choose App360SDK.dll from /app360-wp-sdk/release folder.
 Add a new file m360.xml into your project with content below:
 ```xml
@@ -30,7 +29,7 @@ Add a new file m360.xml into your project with content below:
 ```
 ![enter image description here](https://lh5.googleusercontent.com/-4nJTQD_u7S0/VP1ZzouNwGI/AAAAAAAAAA8/q3WnOK26noQ/s0/m36xml.png "m36xml.png")
 
-**Using [Nuget](https://www.nuget.org/packages/App360SDK)**
+##Using [Nuget](https://www.nuget.org/packages/App360SDK)
 Go to Tools -> Nuget Package Manager -> Package Manager Console
 
 `Install-Package App360SDK -Pre`
@@ -185,7 +184,7 @@ To check the status of a transaction
 #Release Notes
 
 ##Version 1.0.0
-**Release Date:** 
+**Release Date:**  09 Mar 2015
 
 
 # Knows issues
