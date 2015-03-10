@@ -201,6 +201,8 @@ They are a pair of key, used to authorize your app (game) with SDK's server.
  - Login if you already have an account or register a new one
  - Open your application in App360 dashboard, select Information tab
  - All key you need will be there
+ 
+ 
 # Support
 Please contact [us](mailto:support@app360.vn) for general inquiries.
 #For a technical issue
