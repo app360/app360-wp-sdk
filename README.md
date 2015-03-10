@@ -11,7 +11,7 @@ App360 SDK 's Integration Flow
 Firstly, clone or download this repository to your machine.
 
  - `git clone https://github.com/app360/app360-wp-sdk.git`
- - or, download from https://github.com/app360/app360-wp-sdk/tree/master/Release
+ - or, download from https://github.com/app360/app360-wp-sdk
 
 >The App360SDK supports Windows Phone 8 and 8.1 silverlight project.
 
@@ -19,7 +19,7 @@ Firstly, clone or download this repository to your machine.
 There are two ways to add App360SDK to your project.
 
 ##Manual
-- RightClick to your project -> Add -> Reference choose App360SDK.dll from /app360-wp-sdk/release folder.
+- RightClick to your project -> Add -> Reference choose App360SDK.dll from [/release](https://github.com/app360/app360-wp-sdk/tree/master/Release) folder.
 - Add a new file m360.xml into your project with content below:
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
