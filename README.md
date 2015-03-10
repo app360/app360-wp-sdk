@@ -107,9 +107,16 @@ else
 	MessageBox.Show("Đăng nhập không thành công", "\n -Lỗi \n" + sessionInfo.Error, MessageBoxButton.OK);
 }
 ```
-
-
-
+After the session is created, a new user also created for this session. You can get the information of this user from `MOGScopedUser.CurrentUser` . You also update or add new values for the user.
+example:
+```csharp
+{
+	MOGScopedUser.CurrentUser["age"] = 22;
+    MOGScopedUser.CurrentUser["gender"] = "female";
+    // save all by synchronization with server
+    await MOGScopedUser.CurrentUser.SaveAsync();
+}
+```
 ## Linking app-scoped ID with Facebook/Google
 
 
@@ -118,7 +125,7 @@ To link current app-scoped ID with Facebook/Google
 // replace <facebook_access_token> with Facebook access token of user
 MOGScopedUser.CurrentUser.LinkWithFacebookToken("<facebook_access_token>");
 ```
-If done, value of MOGScopedUser.CurrentUser.SocialID will be updated.
+When the linking is successful, the value of `MOGScopedUser.CurrentUser.SocialID` should be updated
 
 #Payment
 ##Payment flow
