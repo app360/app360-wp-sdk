@@ -41,6 +41,7 @@ Go to Tools -> Nuget Package Manager -> Package Manager Console
 
 ##Document
  - Getting Started Guide: this README
+ 
 ##Channeling
 Change configure of channel and subchannel in m360.xml
 
