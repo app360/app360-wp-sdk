@@ -2,6 +2,7 @@
 App360SDK provides easiest way to integrate user management and payment methods (including sms, phone card and e-banking) into your application.
 
 App360 SDK 's Integration Flow
+
 ![App360 SDK 's Integration Flow](https://camo.githubusercontent.com/c1f062a8627f539dbb4d1668f712d1c675b17142/687474703a2f2f692e696d6775722e636f6d2f505864436d62332e706e67)
 
 
@@ -18,8 +19,8 @@ Firstly, clone or download this repository to your machine.
 There are two ways to add App360SDK to your project.
 
 ##Manual
-RightClick to your project -> Add -> Reference choose App360SDK.dll from /app360-wp-sdk/release folder.
-Add a new file m360.xml into your project with content below:
+- RightClick to your project -> Add -> Reference choose App360SDK.dll from /app360-wp-sdk/release folder.
+- Add a new file m360.xml into your project with content below:
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <config>
