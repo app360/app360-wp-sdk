@@ -108,6 +108,7 @@ else
 }
 ```
 After the session is created, a new user also created for this session. You can get the information of this user from `MOGScopedUser.CurrentUser` . You also update or add new values for the user.
+
 example:
 ```csharp
 {
