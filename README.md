@@ -17,24 +17,33 @@ Firstly, clone or download this repository to your machine.
 
 #Add App360 SDK to your project
 There are two ways to add App360SDK to your project.
-
-##Manual
-- RightClick to your project -> Add -> Reference choose App360SDK.dll from [/release](https://github.com/app360/app360-wp-sdk/tree/master/Release) folder.
-- Add a new file m360.xml into your project with content below:
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<config>
-  <channel>mwork</channel>
-  <subchannel></subchannel>
-</config>
-```
-![enter image description here](https://lh5.googleusercontent.com/-4nJTQD_u7S0/VP1ZzouNwGI/AAAAAAAAAA8/q3WnOK26noQ/s0/m36xml.png "m36xml.png")
-
-##Using [Nuget](https://www.nuget.org/packages/App360SDK)
+##Using [Nuget](https://www.nuget.org/packages/App360SDK) (recommendation)
 Go to Tools -> Nuget Package Manager -> Package Manager Console
 
 `Install-Package App360SDK -Pre`
 
+##Manual
+![enter image description here](https://lh6.googleusercontent.com/-Gbre676PY_w/VQpJvQk6ivI/AAAAAAAAACk/X2TVTuKaCSA/s0/app360project.png "app360project.png")
+
+1. Download project demo from https://github.com/app360/app360-wp-sdk.
+2. Add  App360SDK.dll file (RightClick to your project -> Add -> Reference)
+	   from [/release](https://github.com/app360/app360-wp-sdk/tree/master/Release) 
+	
+3. Add a new file app360.xml into your project with content below:
+	```xml
+	<?xml version="1.0" encoding="utf-8" ?>
+	<config>
+	  <channel>mwork</channel>
+	  <subchannel></subchannel>
+	</config>
+	```
+
+
+4. Create a new Folder named vi-VN  and add App360SDK.resources.dll from /release/vi-VN.
+5. Continue add files in Payment/Form/Images to your with project with the same path.
+6. Go Tools -> Nuget Package Manager -> Package Manager Console and install libraries:
+	`Install-Package FubarCoder.RestSharp.Portable`
+	`Install-Package WPtoolkit`
 
 
 # Intergrate your app with App360SDK for windows phone
@@ -43,7 +52,7 @@ Go to Tools -> Nuget Package Manager -> Package Manager Console
  - Getting Started Guide: this README
  
 ##Channeling
-Change configure of channel and subchannel in m360.xml
+Change configure of channel and subchannel in app360.xml
 
 ![enter image description here](https://lh3.googleusercontent.com/0v-0aZOiaDpL0ndmXav9WW9J5d1E9VGKtDph_VqH_Q=s0 "m360Config.png")
 
@@ -154,6 +163,45 @@ There are two methods to integrate payment functionality of App360 SDK into your
 
 Using the SDK's existing UI
 Implement your own UI and using the SDK's basic payment request classes.
+
+## Using payment form UI
+Create an instance of PaymentForm class
+Example:
+
+
+```csharp
+// initialize SMS's resources
+Dictionary<MOGPaymentSDK.SMS_AMOUNT, int> smsDatasource = new Dictionary<MOGPaymentSDK.SMS_AMOUNT, int>();
+datasource.Add(MOGPaymentSDK.SMS_AMOUNT.AMOUNT_1000, 10);
+datasource.Add(MOGPaymentSDK.SMS_AMOUNT.AMOUNT_10000, 100);
+datasource.Add(MOGPaymentSDK.SMS_AMOUNT.AMOUNT_15000, 150);
+// initialize Banking's resources
+Dictionary<int, int> bankingDatasource = new Dictionary<int, int>();
+bankingSource.Add(10000, 10);
+bankingSource.Add(100000, 100);
+bankingSource.Add(150000, 150);
+
+// initialize Card's resources
+Dictionary<int, int> cardDatasource = new Dictionary<int, int>();
+cankingSource.Add(10000, 10);
+cankingSource.Add(100000, 100);
+cankingSource.Add(150000, 150);
+
+// create an instance of PaymentForm
+paymentForm = new Payment.Form.PaymentForm(App.RootFrame, "<payload>", smsDatasource, bankingDatasource, cardDatasource, "<in-app currency>", "<name>", "<description>", "<your game/app icon>");            
+```
+- After building, call `paymentForm.showCardForm()`, `paymentForm.showBankForm()`, `paymentForm.showSmsForm()` and `paymentForm.showPaymentForm()` to display respective payment UI. 
+- `showPaymentForm()` will display an UI which allows users to choose between all available payment methods.
+Note: When call  `showPaymentForm()`, if you let the method datasource is null, it will not be displayed in the list and payment form of that method.
+
+
+![enter image description here](https://lh4.googleusercontent.com/--2Fws7ta3u8/VQlTMDgC88I/AAAAAAAAABQ/9AJLR6qRjig/s0/PaymentMenu_Screenshot.png "Payment Menu")
+
+![enter image description here](https://lh3.googleusercontent.com/-AhUwyJC6abQ/VQlT4n6XtHI/AAAAAAAAABk/WQ52q3InNrs/s0/PaymentCard.png "Payment Card")
+
+![enter image description here](https://lh6.googleusercontent.com/-vsWZrBzEN-Q/VQlUCxGhACI/AAAAAAAAABw/M0iL8TbUO0w/s0/PaymentSms.png "Sms Form")
+
+![enter image description here](https://lh5.googleusercontent.com/-0T53v7rBTLc/VQlUOHwj2QI/AAAAAAAAAB8/lvM6ikxt9qg/s0/PaymentBanking.png "Banking Form")
 ## Using payment classes
  Create a new instance of MOGPaymentSDK
 ```csharp
