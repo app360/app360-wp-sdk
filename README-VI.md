@@ -22,7 +22,7 @@ Sơ đồ luồng tích hợp App360 SDK
 ##Sử dụng [Nuget](https://www.nuget.org/packages/App360SDK) (Khuyến nghị)
 Vào Tools -> Nuget Package Manager -> Package Manager Console
 
-`Install-Package App360SDK -Pre`
+`Install-Package App360SDK`
 
 ##Thêm bằng tay
 ![enter image description here](https://lh3.googleusercontent.com/yOX4kN46CQYG59dE4qRCUp8311ySvqMlGnNepRse2Q=s0 "app360project.png")
