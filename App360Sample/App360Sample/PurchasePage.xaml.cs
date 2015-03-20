@@ -9,11 +9,13 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using App360SDK.Payment;
 using System.Diagnostics;
+using App360SDK.Payment.Form;
 
 namespace App360Sample
 {
     public partial class PurchasePage : PhoneApplicationPage
     {
+        const string IMAGE_LINK = "https://lh6.ggpht.com/4LIsmteJ3JoIjvlgLxdvLEVnYV5yWq4gNauyuWgZDBMVUGs6w326r9S_f_LlyX2P-iA=w300";
         MOGPaymentSDK paymentSDK;
         public PurchasePage()
         {
@@ -85,5 +87,68 @@ namespace App360Sample
 
 
         }
+
+        private void PurchaseButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            PaymentForm paymentForm = new PaymentForm(App.RootFrame);
+            // initialize SMS Amount
+            List<MOGPaymentSDK.SMS_AMOUNT> smsAmounts = new List<MOGPaymentSDK.SMS_AMOUNT>();
+            smsAmounts.Add(MOGPaymentSDK.SMS_AMOUNT.AMOUNT_1000);
+            smsAmounts.Add(MOGPaymentSDK.SMS_AMOUNT.AMOUNT_10000);
+            smsAmounts.Add(MOGPaymentSDK.SMS_AMOUNT.AMOUNT_15000);
+            // initialize banking
+            List<int> bankingAmounts = new List<int>();
+            bankingAmounts.Add(50000);
+            bankingAmounts.Add(100000);
+            bankingAmounts.Add(150000);
+            // initialize cards
+            List<int> cardAmounts = new List<int>();
+            cardAmounts.Add(50000);
+            cardAmounts.Add(100000);
+            cardAmounts.Add(150000);
+            // create an instance
+            paymentForm = new PaymentForm(App.RootFrame)
+            {
+                BankingAmounts = bankingAmounts,
+                CardAmounts = cardAmounts,
+                SmsAmounts = smsAmounts,
+                AppTitle = "Swing copters",
+                AppDescription = ".Gear Studio",
+                Payload = "payload",
+                AppImagePath = "/Assets/ApplicationIcon.png",
+                AmountConverter = new MyAmountsConverter()
+            };
+            // register events
+            paymentForm.OnCardTransaction += paymentForm_OnCardCharged;
+            paymentForm.OnBankingTransaction += paymentForm_OnBankingTransaction;
+            paymentForm.OnSMSTransaction += paymentForm_OnSMSTransaction;
+            // Show
+            paymentForm.Show();
+        }
+
+        void paymentForm_OnSMSTransaction(object sender, SMSTransEventArgs args)
+        {
+            string result = string.Format("\nTo: {0}, Amount: {1}, Syntax:{2}", args.ToNumber, args.Amount, args.Syntax);
+            Debug.WriteLine(result);
+        }
+
+        void paymentForm_OnBankingTransaction(object sender, BankingTransEventArgs args)
+        {
+            string result = string.Format("\ntransaction id: {0},\nurl:{1}", args.TransactionId, args.PayUrl);
+            Debug.WriteLine(result);
+        }
+
+        void paymentForm_OnCardCharged(object sender, CardTransEventArgs args)
+        {
+            if (args.TransactionDetail.IsSuccess)
+            {
+                MessageBox.Show(args.TransactionDetail.Status);
+            }
+            else
+            {
+                MessageBox.Show(args.TransactionDetail.ErrorInfo);
+            }
+        }
+
     }
 }
