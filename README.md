@@ -323,8 +323,8 @@ To check the status of a transaction
 ```
 #Release Notes
 
-##Version 1.0.0
-**Release Date:**  09 Mar 2015
+##Version 1.1.0
+**Release Date:**  20 Mar 2015
 
 
 # Knows issues
