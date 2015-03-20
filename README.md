@@ -1,3 +1,4 @@
+Other language: [Tiếng việt](https://github.com/app360/app360-wp-sdk/blob/master/README-VI.md)
 #Introduction
 App360SDK provides easiest way to integrate user management and payment methods (including sms, phone card and e-banking) into your application.
 
@@ -170,38 +171,120 @@ Example:
 
 
 ```csharp
-// initialize SMS's resources
-Dictionary<MOGPaymentSDK.SMS_AMOUNT, int> smsDatasource = new Dictionary<MOGPaymentSDK.SMS_AMOUNT, int>();
-datasource.Add(MOGPaymentSDK.SMS_AMOUNT.AMOUNT_1000, 10);
-datasource.Add(MOGPaymentSDK.SMS_AMOUNT.AMOUNT_10000, 100);
-datasource.Add(MOGPaymentSDK.SMS_AMOUNT.AMOUNT_15000, 150);
-// initialize Banking's resources
-Dictionary<int, int> bankingDatasource = new Dictionary<int, int>();
-bankingSource.Add(10000, 10);
-bankingSource.Add(100000, 100);
-bankingSource.Add(150000, 150);
+PaymentForm paymentForm = new PaymentForm(App.RootFrame);
 
-// initialize Card's resources
-Dictionary<int, int> cardDatasource = new Dictionary<int, int>();
-cankingSource.Add(10000, 10);
-cankingSource.Add(100000, 100);
-cankingSource.Add(150000, 150);
+// initialize SMS Amount
+List<MOGPaymentSDK.SMS_AMOUNT> smsAmounts = new List<MOGPaymentSDK.SMS_AMOUNT>();
+smsAmounts.Add(MOGPaymentSDK.SMS_AMOUNT.AMOUNT_1000);
+smsAmounts.Add(MOGPaymentSDK.SMS_AMOUNT.AMOUNT_10000);
+smsAmounts.Add(MOGPaymentSDK.SMS_AMOUNT.AMOUNT_15000);
 
-// create an instance of PaymentForm
-paymentForm = new Payment.Form.PaymentForm(App.RootFrame, "<payload>", smsDatasource, bankingDatasource, cardDatasource, "<in-app currency>", "<name>", "<description>", "<your game/app icon>");            
+// initialize banking
+List<int> bankingAmounts = new List<int>();
+bankingAmounts.Add(50000);
+bankingAmounts.Add(100000);
+bankingAmounts.Add(150000);
+
+// initialize cards
+List<int> cardAmounts = new List<int>();
+cardAmounts.Add(50000);
+cardAmounts.Add(100000);
+cardAmounts.Add(150000);
+
+// create an instance
+paymentForm = new PaymentForm(App.RootFrame)
+            {
+                BankingAmounts = bankingAmounts,
+                CardAmounts = cardAmounts,
+                SmsAmounts = smsAmounts,
+                AppTitle = "Swing copters",
+                AppDescription = ".Gear Studio",
+                Payload = "payload",
+                AppImagePath = "/Assets/ApplicationIcon.png",
+                AmountConverter = new MyAmountsConverter()
+            };
+            
+// register events
+paymentForm.OnCardTransaction += paymentForm_OnCardCharged;
+paymentForm.OnBankingTransaction += paymentForm_OnBankingTransaction;
+paymentForm.OnSMSTransaction += paymentForm_OnSMSTransaction;
+
+paymentForm.Show();            
 ```
-- After building, call `paymentForm.showCardForm()`, `paymentForm.showBankForm()`, `paymentForm.showSmsForm()` and `paymentForm.showPaymentForm()` to display respective payment UI. 
-- `showPaymentForm()` will display an UI which allows users to choose between all available payment methods.
-Note: When call  `showPaymentForm()`, if you let the method datasource is null, it will not be displayed in the list and payment form of that method.
-
+- One of Amount of Methods such as BankingAmounts , CardAmounts and SmsAmounts is not set, it will be hide from the menu.
 
 ![enter image description here](https://lh4.googleusercontent.com/--2Fws7ta3u8/VQlTMDgC88I/AAAAAAAAABQ/9AJLR6qRjig/s0/PaymentMenu_Screenshot.png "Payment Menu")
+
+
+- You can call other method such as`paymentForm.ShowCardForm()`, `paymentForm.ShowBankingForm()`, `paymentForm.ShowSMSForm()` to show one of payment methods.
 
 ![enter image description here](https://lh3.googleusercontent.com/-AhUwyJC6abQ/VQlT4n6XtHI/AAAAAAAAABk/WQ52q3InNrs/s0/PaymentCard.png "Payment Card")
 
 ![enter image description here](https://lh6.googleusercontent.com/-vsWZrBzEN-Q/VQlUCxGhACI/AAAAAAAAABw/M0iL8TbUO0w/s0/PaymentSms.png "Sms Form")
 
 ![enter image description here](https://lh5.googleusercontent.com/-0T53v7rBTLc/VQlUOHwj2QI/AAAAAAAAAB8/lvM6ikxt9qg/s0/PaymentBanking.png "Banking Form")
+
+- Class MyAmountConverter implement IAmountConverter interface to convert an amount to a value/item in game/app.
+See example:
+```csharp
+class MyAmountsConverter : IAmountConverter
+    {
+        public string CardAmountToString(int amount)
+        {
+            switch (amount)
+            {
+                case 50000:
+                    return "50000 coins";
+                case 100000:
+                    return "1000 coins";
+                case 200000:
+                    return "200000 coins";
+                default:
+                    return "50000000 coins";
+            }
+        }
+
+        public string BankAmountToString(int amount)
+        {
+            switch (amount)
+            {
+                case 50000:
+                    return "Teemo";
+                case 100000:
+                    return "Darven";
+                case 200000:
+                    return "MAOKAI";
+                default:
+                    return "Lux";
+            }
+        }
+
+        public string SmsAmountToString(MOGPaymentSDK.SMS_AMOUNT amount)
+        {
+            switch (amount)
+            {
+                case MOGPaymentSDK.SMS_AMOUNT.AMOUNT_500:
+                    return "500 xu";
+                case MOGPaymentSDK.SMS_AMOUNT.AMOUNT_1000:
+                    return "1000 xu";
+                case MOGPaymentSDK.SMS_AMOUNT.AMOUNT_2000:
+                    return "200000 xu";
+                case MOGPaymentSDK.SMS_AMOUNT.AMOUNT_3000:
+                    return "3000 xu";
+                case MOGPaymentSDK.SMS_AMOUNT.AMOUNT_4000:
+                    return "400000 xu";
+                case MOGPaymentSDK.SMS_AMOUNT.AMOUNT_5000:
+                    return "5000 xu";
+                case MOGPaymentSDK.SMS_AMOUNT.AMOUNT_10000:
+                    return "10000 xu";
+                case MOGPaymentSDK.SMS_AMOUNT.AMOUNT_15000:
+                    return "15000 xu";
+                default:
+                    return "500 xu";
+            }
+        }
+```
+
 ## Using payment classes
  Create a new instance of MOGPaymentSDK
 ```csharp
