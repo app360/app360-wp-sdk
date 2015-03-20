@@ -21,7 +21,7 @@ There are two ways to add App360SDK to your project.
 ##Using [Nuget](https://www.nuget.org/packages/App360SDK) (recommendation)
 Go to Tools -> Nuget Package Manager -> Package Manager Console
 
-`Install-Package App360SDK -Pre`
+`Install-Package App360SDK`
 
 ##Manual
 ![enter image description here](https://lh6.googleusercontent.com/-Gbre676PY_w/VQpJvQk6ivI/AAAAAAAAACk/X2TVTuKaCSA/s0/app360project.png "app360project.png")
