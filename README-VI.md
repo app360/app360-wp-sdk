@@ -331,8 +331,8 @@ MOGPhoneCardTransaction phonecardTransaction = await paymentSDK.MakePhoneCardTra
 ```
 #Release Notes
 
-##Version 1.0.0
-**Release Date:**  09 Mar 2015
+##Version 1.1.0
+**Release Date:**  20 Mar 2015
 
  - Support user management via app-scoped ID
  - Support charging via phone card, SMS and e-banking
