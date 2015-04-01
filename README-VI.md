@@ -47,7 +47,15 @@ Vào Tools -> Nuget Package Manager -> Package Manager Console
 	`Install-Package FubarCoder.RestSharp.Portable`
 	`Install-Package WPtoolkit`
  
+##Set Capabilities
+Mở WMAppManifest.xml và check vào các capabilities như sau:
 
+ - ID_CAP_NETWORKING
+ - ID_CAP_MEDIALIB_AUDIO
+ - ID_CAP_MEDIALIB_PLAYBACK
+ - ID_CAP_SENSORS
+ - ID_CAP_WEBBROWSERCOMPONENT
+ - ID_CAP_IDENTITY_DEVICE
 
 #Tích hợp ứng dụng của bạn với App360 SDK cho windows phone
 
@@ -337,6 +345,9 @@ MOGPhoneCardTransaction phonecardTransaction = await paymentSDK.MakePhoneCardTra
  - Support user management via app-scoped ID
  - Support charging via phone card, SMS and e-banking
  - Support checking transaction status
+##Version 1.1.8
+**Release Date:**  04 April 2015
+
 
 # Known Issues
 
