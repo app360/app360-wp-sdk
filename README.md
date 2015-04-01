@@ -337,6 +337,8 @@ To check the status of a transaction
 ##Version 1.1.8
 **Release Date:** 01 April 2015
 
+  - Add Set Capabilities 
+
 # Knows issues
 There's no known issues for now
 # FAQ
