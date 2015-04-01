@@ -46,6 +46,15 @@ Go to Tools -> Nuget Package Manager -> Package Manager Console
 	`Install-Package FubarCoder.RestSharp.Portable`
 	`Install-Package WPtoolkit`
 
+##Set Capabilities
+Open WMAppManifest.xml and set capabilities below:
+
+ - ID_CAP_NETWORKING
+ - ID_CAP_MEDIALIB_AUDIO
+ - ID_CAP_MEDIALIB_PLAYBACK
+ - ID_CAP_SENSORS
+ - ID_CAP_WEBBROWSERCOMPONENT
+ - ID_CAP_IDENTITY_DEVICE
 
 # Intergrate your app with App360SDK for windows phone
 
@@ -325,7 +334,8 @@ To check the status of a transaction
 
 ##Version 1.1.0
 **Release Date:**  20 Mar 2015
-
+##Version 1.1.8
+**Release Date:** 01 April 2015
 
 # Knows issues
 There's no known issues for now
