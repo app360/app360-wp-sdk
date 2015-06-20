@@ -8,12 +8,14 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using App360Sample.Resources;
 using App360SDK;
+using App360SDK.AppScopedID;
 namespace App360Sample
 {
     public partial class App : Application
     {
-        const string APPLICATION_ID = "1003999399656593253938";
-        const string SECRET_KEY = "RrWL91yoAugkD6i3n2UahOsclbLpc5UrynLQ2XHEwlFrZg4V";
+        public const string APPLICATION_ID = "1004087854591980271960";
+        public const string SECRET_KEY = "BM9oFbisRN3HZh7rMWUyG4uPuLxOsuxuRESVX5Qbztjr9dg8";
+
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
@@ -59,8 +61,7 @@ namespace App360Sample
 
 
             // Initilize App360SDK
-            App360SDK.App360SDK.Initialize(APPLICATION_ID, SECRET_KEY);
-
+            var initsdktask = App360SDK.App360SDK.Initialize(APPLICATION_ID, SECRET_KEY);            
 
         }
 

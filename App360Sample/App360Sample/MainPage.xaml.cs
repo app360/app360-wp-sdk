@@ -23,13 +23,38 @@ namespace App360Sample
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
+            this.Loaded += MainPage_Loaded;
+        }
+
+        async void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            MOGSession session;
+            if (MOGSessionManager.ActiveSession == null)
+            {
+                String scopedId = "your-user-id";
+                session = await MOGSessionManager.OpenActiveSessionWithScopeIdAsync(scopedId, null);
+
+                if (session.IsSuccess)
+                {
+                    Debug.WriteLine("\n -Đăng nhập thành công \n SessionInfo: \n" + session.ToString());
+
+                    MOGScopedUser currentUser = MOGScopedUser.CurrentUser;
+                    Debug.WriteLine("\n -Current user id: \n" + currentUser.ScopeId);
+                }
+                else
+                {
+                    Debug.WriteLine("\n -Lỗi \n" + session.Error + "Đăng nhập không thành công");
+                }
+            }
+
         }
 
         private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             LoginButton.IsEnabled = false;
             MOGSession sessionInfo;
-            sessionInfo = await MOGSessionManager.OpenActiveSessionWithScopeIdAsync(null,null);
+            sessionInfo = await MOGSessionManager.OpenActiveSessionWithScopeIdAsync(null, null);
 
             if (sessionInfo.IsSuccess)
             {

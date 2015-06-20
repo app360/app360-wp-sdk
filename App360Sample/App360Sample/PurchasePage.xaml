@@ -13,29 +13,16 @@
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
 
-    <phone:Pivot>
-        <phone:PivotItem Header="Using Form">
-            <Grid>
-                <Button x:Name="PurchaseButton" VerticalAlignment="Top" Content="Purchase" Tap="PurchaseButton_Tap"/>
-            </Grid>
-        </phone:PivotItem>
-        <phone:PivotItem Header="Using classes">
-            <Grid x:Name="LayoutRoot" Background="Transparent">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <TextBlock TextWrapping="Wrap" Text="Thanh Toán" Style="{StaticResource PhoneTextTitle1Style}"/>
-                <Button x:Name="PhongCardButton" Content="Thẻ cào" Grid.Row="1" Click="PhongCardButton_Click"/>
-                <Button x:Name="SMButton" Content="Tin nhắn sms" Grid.Row="2" Click="SMButton_Click"/>
-                <Button x:Name="BankingButton" Content="Ngân Hàng" Grid.Row="3" Click="BankingButton_Click"/>
-            </Grid>
-        </phone:PivotItem>
+
+    <StackPanel x:Name="LayoutRoot" Background="Transparent">
+        <TextBlock TextWrapping="Wrap" Text="Thanh Toán" Style="{StaticResource PhoneTextTitle1Style}" Height="96"/>
+        <Button x:Name="PhongCardButton" Content="Thẻ cào" Click="PhongCardButton_Click" Height="72"/>
+        <Button x:Name="SMButton" Content="Tin nhắn sms" Click="SMButton_Click" Height="72"/>
+        <Button x:Name="BankingButton" Content="Ngân Hàng" Click="BankingButton_Click" Height="72"/>
+        <TextBlock Text="Transaction id" />
+        <TextBox x:Name="TransactionIdTextBox" TextWrapping="Wrap" VerticalAlignment="Top" Text="4093618024525711734"/>
+        <Button Content="Check status" VerticalAlignment="Top" Click="Button_Click"/>
+    </StackPanel>
 
 
-    </phone:Pivot>
 </phone:PhoneApplicationPage>
