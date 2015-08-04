@@ -44,8 +44,12 @@ Open your `App.xaml.cs` in project and paste the following code into the last of
 ```
 public App()
 {
-    // App.xaml initialization
-       App360SDK.Initialize("application_id", "secret");    
+    	// App.xaml initialization
+ 	this.Startup += async (sender, args) =>
+	{
+        	// Initilize App360SDK
+        	await App360SDK.App360SDK.Initialize("application_id", "secret");
+        };
 }
 ```
 To create new session, replace the following code into your Mainpage.xaml.cs
@@ -98,7 +102,10 @@ async void MainPage_Loaded(object sender, RoutedEventArgs e)
 **Release Date:** 19 June 2015
   - Fix bugs.
   - Change parameters of GetSMSSyntax method.
-
+## Version 1.5.0
+**Release Date:** 4 Aug 2015
+  - Update initialize method.
+  
 # Support
 Please contact [us](mailto:support@app360.vn) for general inquiries.
 ## For a technical issue
