@@ -8,7 +8,7 @@ App360SDK cung cấp cách thức đơn giản nhất để quản lý user và 
 
 | App360SDK Version | Minimum Windows Phone Version Target | 				Notes 			|
 |:-----------------:|:------------------:|:----------------------------:|
-|1.4.0|8.0|Support for windows phone 8.0 and 8.1 silverlight projects|
+|1.5.0|8.0|Support for windows phone 8.0 and 8.1 silverlight projects|
 # Bắt đầu với Demo project
 
 Đầu tiên,hãy clone hoặc download ví dụ về máy.
