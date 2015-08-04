@@ -48,8 +48,12 @@ Mở file `App.xaml.cs` trong project của bạn và chèn thêm code vào cu�
 ```
 public App()
 {
-    // App.xaml initialization
-       App360SDK.Initialize("application_id", "secret");    
+    	// App.xaml initialization
+ 	this.Startup += async (sender, args) =>
+	{
+        	// Initilize App360SDK
+        	await App360SDK.App360SDK.Initialize("application_id", "secret");
+        };
 }
 ```
 Để tạo một session, thay thế những dòng code tương ứng trong Mainpage.xaml.cs của bạn như sau: 
@@ -102,7 +106,11 @@ async void MainPage_Loaded(object sender, RoutedEventArgs e)
 **Release Date:** 19 June 2015
   - Sửa lỗi.
   - Thay đổi parameters trong hàm GetSMSSyntax.
-
+  - 
+## Version 1.5.0
+**Release Date:** 4 Aug 2015
+  - Update initialize method.
+  
 # Hỗ trợ
 Vui lòng liên hệ với [chúng tôi](mailto:support@app360.vn) về những vấn đề chung.
 
