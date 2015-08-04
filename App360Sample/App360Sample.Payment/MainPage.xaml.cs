@@ -7,26 +7,24 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using App360Sample.Resources;
-using App360SDK;
+using App360Sample.Payment.Resources;
 using System.Diagnostics;
+using App360SDK;
 
-namespace App360Sample
+namespace App360Sample.Payment
 {
     public partial class MainPage : PhoneApplicationPage
     {
-       
+        // Constructor
         public MainPage()
         {
             InitializeComponent();
 
-           
             this.Loaded += MainPage_Loaded;
         }
 
         async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-           
 
             MOGSession session;
             if (MOGSessionManager.ActiveSession == null)
@@ -58,7 +56,7 @@ namespace App360Sample
             if (sessionInfo.IsSuccess)
             {
                 Debug.WriteLine("\n -Đăng nhập thành công \n SessionInfo: \n" + sessionInfo.ToString());
-                MessageBox.Show("\n -Đăng nhập thành công \n SessionInfo: \n" + sessionInfo.ToString());
+                App.RootFrame.Navigate(new Uri("/PurchasePage.xaml", UriKind.RelativeOrAbsolute));
             }
             else
             {
@@ -67,7 +65,5 @@ namespace App360Sample
             }
             LoginButton.IsEnabled = true;
         }
-
-
     }
 }

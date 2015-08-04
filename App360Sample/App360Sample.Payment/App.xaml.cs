@@ -6,14 +6,15 @@ using System.Windows.Markup;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using App360Sample.Resources;
-using App360SDK;
-namespace App360Sample
+using App360Sample.Payment.Resources;
+
+namespace App360Sample.Payment
 {
     public partial class App : Application
     {
         public const string APPLICATION_ID = "1004107249806532482384";
         public const string SECRET_KEY = "TE1frxjUvPfAJIbQgwwjicZ3Z9qoTVrzeA9WFYLDuqjQBPwN";
+
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
@@ -63,6 +64,7 @@ namespace App360Sample
                 await App360SDK.App360SDK.Initialize(APPLICATION_ID, SECRET_KEY);
             };
         }
+
 
         // Code to execute when the application is launching (eg, from Start)
         // This code will not execute when the application is reactivated

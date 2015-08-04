@@ -75,7 +75,7 @@ namespace App360Sample
                     var mstt = (MOGStatusTransaction)transaction;
                     foreach (var key in mstt.Details)
                     {
-                        Debug.WriteLine("\n` {0}: {1}", key.Key.ToString(), key.Value.ToString());
+                        Debug.WriteLine("\n` {0}: {1}", key.Key.ToString(), key.Value.ToString() as string);
                     }
 
                 }
