@@ -102,6 +102,7 @@ async void MainPage_Loaded(object sender, RoutedEventArgs e)
 **Release Date:** 19 June 2015
   - Fix bugs.
   - Change parameters of GetSMSSyntax method.
+  
 ## Version 1.5.0
 **Release Date:** 4 Aug 2015
   - Update initialize method.
