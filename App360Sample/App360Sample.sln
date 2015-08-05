@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BF08FA
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App360Sample.Payment", "App360Sample.Payment\App360Sample.Payment.csproj", "{6C10004D-8D92-4CE9-9328-DEDEF506B105}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,24 +40,6 @@ Global
 		{D5564BF8-0318-48DB-9BAD-7B55CE09E5A5}.Release|x86.ActiveCfg = Release|x86
 		{D5564BF8-0318-48DB-9BAD-7B55CE09E5A5}.Release|x86.Build.0 = Release|x86
 		{D5564BF8-0318-48DB-9BAD-7B55CE09E5A5}.Release|x86.Deploy.0 = Release|x86
-		{6C10004D-8D92-4CE9-9328-DEDEF506B105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C10004D-8D92-4CE9-9328-DEDEF506B105}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C10004D-8D92-4CE9-9328-DEDEF506B105}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{6C10004D-8D92-4CE9-9328-DEDEF506B105}.Debug|ARM.ActiveCfg = Debug|ARM
-		{6C10004D-8D92-4CE9-9328-DEDEF506B105}.Debug|ARM.Build.0 = Debug|ARM
-		{6C10004D-8D92-4CE9-9328-DEDEF506B105}.Debug|ARM.Deploy.0 = Debug|ARM
-		{6C10004D-8D92-4CE9-9328-DEDEF506B105}.Debug|x86.ActiveCfg = Debug|x86
-		{6C10004D-8D92-4CE9-9328-DEDEF506B105}.Debug|x86.Build.0 = Debug|x86
-		{6C10004D-8D92-4CE9-9328-DEDEF506B105}.Debug|x86.Deploy.0 = Debug|x86
-		{6C10004D-8D92-4CE9-9328-DEDEF506B105}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C10004D-8D92-4CE9-9328-DEDEF506B105}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6C10004D-8D92-4CE9-9328-DEDEF506B105}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{6C10004D-8D92-4CE9-9328-DEDEF506B105}.Release|ARM.ActiveCfg = Release|ARM
-		{6C10004D-8D92-4CE9-9328-DEDEF506B105}.Release|ARM.Build.0 = Release|ARM
-		{6C10004D-8D92-4CE9-9328-DEDEF506B105}.Release|ARM.Deploy.0 = Release|ARM
-		{6C10004D-8D92-4CE9-9328-DEDEF506B105}.Release|x86.ActiveCfg = Release|x86
-		{6C10004D-8D92-4CE9-9328-DEDEF506B105}.Release|x86.Build.0 = Release|x86
-		{6C10004D-8D92-4CE9-9328-DEDEF506B105}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
